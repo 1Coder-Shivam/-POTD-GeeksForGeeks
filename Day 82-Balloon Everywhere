@@ -1,0 +1,8 @@
+class Solution {
+    public int maxInstance(String s) {
+        // Code here
+       int arr[] = new int[26];
+       for(int i=0;i<s.length();i++) arr[s.charAt(i)-'a']++;
+       return Math.min(arr[0],Math.min(arr[1],Math.min(arr[11]/2,Math.min(arr[14]/2,arr[14]))));
+    }
+}
