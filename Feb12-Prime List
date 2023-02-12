@@ -1,0 +1,43 @@
+class Solution
+{
+    Node primeList(Node head){
+        //code here
+        Node curr=head;
+        while(curr!=null){
+            if(curr.val==1){
+                curr.val=2;
+                curr=curr.next;
+                continue;
+            }
+            int x=curr.val;
+            int y=curr.val;
+            while(!isPrime(x)){
+                x--;
+                
+            }
+            while(!isPrime(y)){
+                y++;
+            }
+            if(curr.val-x>y-curr.val){
+                curr.val=y;
+            }
+            else{
+                curr.val=x;
+                
+            }
+            curr=curr.next;
+            
+            
+        }
+        return head;
+        
+    }
+    
+    boolean isPrime(int N){
+        if(N==0||N==1) return false;
+        for(int i=2;i<=Math.sqrt(N);i++){
+            if(N%i==0) return false;
+        }
+        return true;
+    }
+}
