@@ -1,0 +1,28 @@
+class Solution {
+    static long solve(int n, int k, ArrayList<Long> GeekNum) {
+        //code here
+        
+        //Brute force approach
+        // for(int i=k;i<n;i++){
+        //     long sm=0;
+        //     for(int j=i-k;j<i;j++) sm+=GeekNum.get(j);
+        //     GeekNum.add(sm);
+        // }
+        // return GeekNum.get(n-1);
+        
+        long sm=0;
+         List<Long> lst = new ArrayList<>();
+         for(long i: GeekNum){
+             sm+=i;
+             lst.add(i);
+         }
+         int st=0;
+         while(lst.size()<n){
+             lst.add(sm);
+             sm+=sm;
+             sm-=lst.get(st);
+             st++;
+         }
+         return lst.get(n-1);
+    }
+}
