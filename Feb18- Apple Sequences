@@ -1,0 +1,22 @@
+class Solution{
+    public static int appleSequence(int n, int m, String arr){
+        //code here
+        int left = 0, right = 0;
+        int spells = m;
+        int ans = 0;
+        while (right < n){
+            if (arr.charAt(right) == 'O'){
+                if (spells > 0) {
+                    spells--;
+                    right++;
+                } else{
+                    ans = Math.max(ans, right - left);
+                    if (arr.charAt(left) == 'O') spells++;
+                    left++;
+                }
+            } else right++;
+        }
+        ans = Math.max(ans, right - left);
+        return ans;
+    }
+}
